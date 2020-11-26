@@ -6,6 +6,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.UserAddressDto;
 import sys.app.its.dto.UserDto;
@@ -16,8 +17,8 @@ import sys.app.its.repository.UserRepository;
 import sys.app.its.service.UserAddressService;
 import sys.app.its.utility.Utility;
 
-@AllArgsConstructor
 @Service
+@AllArgsConstructor
 public class UserAddressServiceImplementation implements UserAddressService {
 	
 	private UserAddressRepository addressRepository;
@@ -53,5 +54,22 @@ public class UserAddressServiceImplementation implements UserAddressService {
 		UserAddressDto returnDto = new ModelMapper().map(saveAddressEntity, UserAddressDto.class);
 		returnDto.setUserDetails(userDto);
 		return returnDto;
+	}
+
+	@Override
+	public UserAddressDto updateAddress(UserAddressDto addressDto, String addressId) {
+		String city = addressDto.getCity();
+		String country = addressDto.getCountry();
+		String streetName = addressDto.getStreetName();
+		String postalCode = addressDto.getPostalCode();
+		String type = addressDto.getType().toUpperCase();
+		UserAddressEntity entity = addressRepository.findByAddressId(addressId);
+		entity.setCity(city);		
+		entity.setCountry(country);
+		entity.setStreetName(streetName);
+		entity.setPostalCode(postalCode);
+		entity.setType(type);
+		UserAddressEntity updatedentity = addressRepository.save(entity);		
+		return new ModelMapper().map(updatedentity, UserAddressDto.class);
 	}
 }

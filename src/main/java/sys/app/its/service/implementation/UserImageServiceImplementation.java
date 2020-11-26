@@ -16,8 +16,8 @@ import sys.app.its.repository.UserRepository;
 import sys.app.its.service.UserImageService;
 import sys.app.its.utility.Utility;
 
-@AllArgsConstructor
 @Service
+@AllArgsConstructor
 public class UserImageServiceImplementation implements UserImageService { 
 
 	private UserImageRepository userImageRepository;

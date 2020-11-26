@@ -20,7 +20,7 @@ import sys.app.its.service.UserService;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping({"/users"})
+@RequestMapping({"/api/users"})
 public class UserController {
 	
 	private UserService userService;

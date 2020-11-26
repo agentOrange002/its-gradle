@@ -1,18 +1,26 @@
 package sys.app.its.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -67,12 +75,39 @@ public class UserEntity implements Serializable {
 	@Column(name="email_verification_status",nullable = false, columnDefinition = "boolean default false")
 	private Boolean emailVerificationStatus;
 
+	@OneToOne(mappedBy = "userImageDetails", cascade = CascadeType.ALL)
+	private UserImageEntity userImage;	
+	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
 	private List<UserAddressEntity> addresses;		
 	
 	@JsonManagedReference
-	@OneToOne(mappedBy = "userImageDetails", cascade = CascadeType.ALL)
-	private UserImageEntity userImage;
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(cascade =CascadeType.PERSIST, fetch = FetchType.LAZY)
+	@JoinTable(name = "users_roles", 
+	joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "id"))
+	private Collection<RoleEntity> roles;	
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "issueUserDetails", cascade = CascadeType.ALL)
+	private List<IssueEntity> issues;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "issueLogUserDetails", cascade = CascadeType.ALL)
+	private List<IssueLogEntity> issuesLogs;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "supportUserDetails", cascade = CascadeType.ALL)
+	private List<IssueEntity> supportissues;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "userticketDetails", cascade = CascadeType.ALL)
+	private List<TicketEntity> tickets;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "usertaskDetails", cascade = CascadeType.ALL)
+	private List<TaskEntity> tasks;
 	 
 }

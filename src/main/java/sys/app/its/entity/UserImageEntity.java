@@ -26,35 +26,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="user_images")
+@Table(name = "user_images")
 public class UserImageEntity implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6956329547570504820L;
-	
+
 	@Id
 	@SequenceGenerator(name = "userimage_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userimage_seq")
 	private Long id;
-	
-	@Column(name="image_id",nullable=false, length=50)
+
+	@Column(name = "image_id", nullable = false, length = 50)
 	private String imageId;
-	
-	@Lob	
-	@Basic(fetch=FetchType.EAGER)
-	@Column(name="image",columnDefinition="BLOB",length=100000000,nullable=false)	
+
+	@Lob
+	@Basic(fetch = FetchType.EAGER)
+	@Column(name = "image", length = 1000000000)
 	private byte[] image;
 
-	@JsonIgnore	  
+	@JsonIgnore
 	@OneToOne
-	@JoinColumn(name = "user_id", unique = false) 
+	@JoinColumn(name = "user_id", unique = false)
 	private UserEntity userImageDetails;
-		
-	@JsonProperty 
-	public Long getUserId() { 
-		return userImageDetails.getId(); 
+
+	@JsonProperty
+	public Long getUserId() {
+		return userImageDetails.getId();
 	}
-	 
 }

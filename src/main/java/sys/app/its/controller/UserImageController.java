@@ -20,7 +20,7 @@ import sys.app.its.service.UserImageService;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/users/images")
+@RequestMapping("/api/users/images")
 public class UserImageController {
 	
 	private UserImageService userImageService;
