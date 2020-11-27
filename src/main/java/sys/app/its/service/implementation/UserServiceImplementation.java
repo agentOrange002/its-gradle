@@ -49,6 +49,7 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public UserDto getUserById(String userId) {	
 		UserEntity entity = userRepository.findByUserId(userId);	
+		if(entity==null) throw new UsernameNotFoundException(userId);
 		return new ModelMapper().map(entity,UserDto.class);
 	}
 
@@ -104,7 +105,7 @@ public class UserServiceImplementation implements UserService {
 	public UserDto getEmail(String email) {
 		UserDto returnValue = new UserDto();
 		UserEntity userEntity = userRepository.findByEmail(email);
-		if (userEntity == null)throw new UsernameNotFoundException(email);		
+		if (userEntity == null) throw new UsernameNotFoundException(email);		
 		BeanUtils.copyProperties(userEntity,returnValue);	
 		return returnValue;
 	}
