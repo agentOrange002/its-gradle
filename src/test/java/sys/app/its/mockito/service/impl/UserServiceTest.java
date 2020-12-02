@@ -1,4 +1,4 @@
-package sys.app.its.service.impl.mockito;
+package sys.app.its.mockito.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
