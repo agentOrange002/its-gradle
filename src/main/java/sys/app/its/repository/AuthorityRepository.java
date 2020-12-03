@@ -14,6 +14,8 @@ import sys.app.its.entity.AuthorityEntity;
 @Transactional
 public interface AuthorityRepository extends JpaRepository<AuthorityEntity, Long> {
 	AuthorityEntity findByName(String name);
-	@Query(value = "CALL show_authorizations_by_user_id(:userId);", nativeQuery = true)
+	@Query(value = "SELECT * FROM show_authorizations_by_user_id(:userId);", nativeQuery = true)
 	List<AuthorityEntity> findAuthorizationsByUserId(@Param("userId") String userId);
 }
+
+//@Query(value = "CALL show_authorizations_by_user_id(:userId);", nativeQuery = true)

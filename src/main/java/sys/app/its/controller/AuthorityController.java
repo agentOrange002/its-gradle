@@ -19,7 +19,7 @@ import sys.app.its.service.AuthorityService;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping({ "/api/users/authorities" })
+@RequestMapping({ "/api/authorities" })
 public class AuthorityController {
 	
 	private AuthorityService authorityService;	

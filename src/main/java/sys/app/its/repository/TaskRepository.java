@@ -15,10 +15,12 @@ import sys.app.its.entity.TicketEntity;
 @Transactional
 public interface TaskRepository extends JpaRepository<TaskEntity, Long> {
 	
-	@Query(value = "CALL show_tasks_by_support_user(:userId);", nativeQuery = true)
+	@Query(value = "SELECT * FROM show_tasks_by_support_user(:userId);", nativeQuery = true)
 	List<TaskEntity> findTasksUsingSupportId(@Param("userId") String userId);
 	List<TaskEntity> findTasksByTicketDetails(TicketEntity ticketEntity);
 	TaskEntity findByTaskId(String taskId);
 	long countByDateOpenedNotNull();
 	long countByDateClosedNotNull();
 }
+
+//@Query(value = "CALL show_tasks_by_support_user(:userId);", nativeQuery = true)

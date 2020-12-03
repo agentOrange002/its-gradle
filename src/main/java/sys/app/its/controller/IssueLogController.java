@@ -24,7 +24,7 @@ import sys.app.its.service.IssueLogService;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping({"/api/issues/logs"})
+@RequestMapping({"/api/issuelogs"})
 public class IssueLogController {
 	
 	private IssueLogService issueLogService;

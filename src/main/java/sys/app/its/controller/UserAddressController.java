@@ -21,7 +21,7 @@ import sys.app.its.service.UserAddressService;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping({"/api/users/addresses"})
+@RequestMapping({"/api/useraddresses"})
 public class UserAddressController {
 	
 	private UserAddressService addressService;
