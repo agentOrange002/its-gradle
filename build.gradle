@@ -16,6 +16,8 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven{url "http://jasperreports.sourceforge.net/maven2/"}
+    maven{url "http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/"}
 }
 
 dependencies {	
@@ -25,6 +27,7 @@ dependencies {
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml' 
 	implementation 'org.modelmapper:modelmapper:2.3.8'
 	implementation 'net.sf.jasperreports:jasperreports:6.16.0'
+	implementation 'com.itextpdf:itextpdf:5.5.13.2'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.4.8'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation 'com.sun.mail:javax.mail:1.6.2'

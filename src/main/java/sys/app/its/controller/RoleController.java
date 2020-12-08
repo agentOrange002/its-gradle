@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.RoleDto;
 import sys.app.its.model.request.RoleRequestModel;
 import sys.app.its.model.response.RoleResponseModel;
 import sys.app.its.service.RoleService;
 
+@Tag(name = "Roles", description = "Roles REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/roles"})

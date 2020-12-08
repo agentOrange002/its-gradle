@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.IssueDto;
 import sys.app.its.enums.RequestOperationName;
@@ -20,6 +21,7 @@ import sys.app.its.model.response.OperationStatusModel;
 import sys.app.its.service.IssueService;
 import sys.app.its.service.UserService;
 
+@Tag(name = "Public", description = "Public REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/public"})

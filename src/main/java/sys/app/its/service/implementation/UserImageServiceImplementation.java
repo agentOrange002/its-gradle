@@ -53,4 +53,14 @@ public class UserImageServiceImplementation implements UserImageService {
 		return new ModelMapper().map(saveEntity, UserImageDto.class);
 	}
 
+	@Override
+	public UserImageDto updateUserImage(UserImageDto transferDto, String userId) {
+		byte[] imageBytes = transferDto.getImage();	
+		UserEntity userEntity = userRepository.findByUserId(userId);		
+		UserImageEntity userImageEntity = userImageRepository.findByUserImageDetails(userEntity);
+		userImageEntity.setImage(imageBytes);
+		UserImageEntity updateduserImageEntity = userImageRepository.save(userImageEntity);	
+		return new ModelMapper().map(updateduserImageEntity,UserImageDto.class);
+	}
+
 }

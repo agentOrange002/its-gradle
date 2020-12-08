@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.IssueDto;
 import sys.app.its.dto.IssueLogDto;
@@ -22,6 +23,7 @@ import sys.app.its.model.shortresponse.ShortIssueResponseModel;
 import sys.app.its.model.shortresponse.ShortUserResponseModel;
 import sys.app.its.service.IssueLogService;
 
+@Tag(name = "IssueLogs", description = "Issues REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/issuelogs"})

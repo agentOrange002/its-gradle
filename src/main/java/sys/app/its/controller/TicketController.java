@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.TicketDto;
 import sys.app.its.model.response.TicketResponseModel;
 import sys.app.its.service.TicketService;
 
+@Tag(name = "Tickets", description = "Tickets REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({ "/api/tickets" })

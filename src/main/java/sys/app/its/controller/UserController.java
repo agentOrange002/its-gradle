@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.UserDto;
 import sys.app.its.enums.RequestOperationName;
@@ -25,6 +26,7 @@ import sys.app.its.model.response.UserResponseModel;
 import sys.app.its.model.shortresponse.ShortUserResponseModel;
 import sys.app.its.service.UserService;
 
+@Tag(name = "Users", description = "Users REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({"/api/users"})
@@ -32,13 +34,13 @@ public class UserController {
 	
 	private UserService userService;
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<UserResponseModel> allUser(){
+	@GetMapping(path="/all",produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<ShortUserResponseModel> allUser(){
 		ModelMapper mapper = new ModelMapper();
-		List<UserResponseModel> response = new ArrayList<UserResponseModel>();
+		List<ShortUserResponseModel> response = new ArrayList<ShortUserResponseModel>();
 		List<UserDto> listDto = userService.allUsers();
 		for(UserDto dto : listDto) {
-			response.add(mapper.map(dto, UserResponseModel.class));
+			response.add(mapper.map(dto, ShortUserResponseModel.class));
 		}
 		return response;
 	}	

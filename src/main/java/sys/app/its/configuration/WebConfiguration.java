@@ -8,9 +8,9 @@
  * @Configuration public class WebConfiguration implements WebMvcConfigurer {
  * 
  * @Override public void addCorsMappings(CorsRegistry registry) {
- * registry.addMapping("/*") .allowCredentials(true)
+ * registry.addMapping("/*").allowCredentials(true)
  * .allowedHeaders("Authorization", "Cache-Control", "Content-Type", "Accept",
  * "X-Requested-With", "Access-Control-Allow-Origin",
  * "Access-Control-Allow-Headers", "Origin") .exposedHeaders("Authorization",
- * "UserID") .allowedMethods("*") .allowedOrigins("*"); } }
+ * "UserID").allowedMethods("*").allowedOrigins("*"); } }
  */

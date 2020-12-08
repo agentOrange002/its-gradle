@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.TaskDto;
 import sys.app.its.model.request.TaskRequestModel;
 import sys.app.its.model.response.TaskResponseModel;
 import sys.app.its.service.TaskService;
 
+@Tag(name = "Tasks", description = "Tasks REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({ "/api/tasks" })

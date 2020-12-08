@@ -10,13 +10,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import sys.app.its.dto.AuthorityDto;
 import sys.app.its.dto.RoleDto;
 import sys.app.its.model.response.AuthorityResponseModel;
 import sys.app.its.model.response.RoleResponseModel;
 import sys.app.its.service.AuthorityService;
+import sys.app.its.entity.AuthorityEntity;
 
+@Tag(name = "Authorities", description = "Authorities REST API Service")
 @AllArgsConstructor
 @RestController
 @RequestMapping({ "/api/authorities" })
@@ -24,6 +33,9 @@ public class AuthorityController {
 	
 	private AuthorityService authorityService;	
 
+	@Operation(summary = "All Authorities By Roles UserId", description = "Get list of all Authorities By Roles UserId", tags = "Authorities")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityEntity.class)))) })
 	@GetMapping(path="/roles/{userid}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<RoleResponseModel> getRolesAuthoritiesByUser(@PathVariable String userid) {	
 		List<RoleDto> listDto = authorityService.getRolesByUser(userid);
@@ -35,6 +47,9 @@ public class AuthorityController {
 		return responseList;		
 	}
 	
+	@Operation(summary = "All Authorities By UserId", description = "Get list of all Authorities By UserId", tags = "Authorities")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityEntity.class)))) })
 	@GetMapping(path="/{userid}", produces = {MediaType.APPLICATION_JSON_VALUE})	
 	public List<AuthorityResponseModel> getAuthoritiesByUser(@PathVariable String userid) {	
 		List<AuthorityDto> listDto = authorityService.getAuthoritiesByUser(userid);
