@@ -4,6 +4,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="net.sf.jasperreports.export.pdf.display.metadata.title" value="IssueReportPDF"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="net.sf.jasperreports.compiler.xml.parser.cache.schemas" value="false"/>
 	<parameter name="issueid" class="java.lang.String"/>
 	<queryString language="plsql">
 		<![CDATA[SELECT * FROM issues WHERE issue_id = $P{issueid}]]>

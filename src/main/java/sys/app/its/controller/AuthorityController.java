@@ -23,7 +23,6 @@ import sys.app.its.dto.RoleDto;
 import sys.app.its.model.response.AuthorityResponseModel;
 import sys.app.its.model.response.RoleResponseModel;
 import sys.app.its.service.AuthorityService;
-import sys.app.its.entity.AuthorityEntity;
 
 @Tag(name = "Authorities", description = "Authorities REST API Service")
 @AllArgsConstructor
@@ -35,7 +34,7 @@ public class AuthorityController {
 
 	@Operation(summary = "All Authorities By Roles UserId", description = "Get list of all Authorities By Roles UserId", tags = "Authorities")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityEntity.class)))) })
+			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityResponseModel.class)))) })
 	@GetMapping(path="/roles/{userid}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<RoleResponseModel> getRolesAuthoritiesByUser(@PathVariable String userid) {	
 		List<RoleDto> listDto = authorityService.getRolesByUser(userid);
@@ -49,7 +48,7 @@ public class AuthorityController {
 	
 	@Operation(summary = "All Authorities By UserId", description = "Get list of all Authorities By UserId", tags = "Authorities")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityEntity.class)))) })
+			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = AuthorityResponseModel.class)))) })
 	@GetMapping(path="/{userid}", produces = {MediaType.APPLICATION_JSON_VALUE})	
 	public List<AuthorityResponseModel> getAuthoritiesByUser(@PathVariable String userid) {	
 		List<AuthorityDto> listDto = authorityService.getAuthoritiesByUser(userid);

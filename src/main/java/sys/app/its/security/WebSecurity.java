@@ -43,10 +43,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable().authorizeRequests()
 				.antMatchers(HttpMethod.POST, SecurityConstants.PUBLIC_REPORT_ISSUE).permitAll()
 				.antMatchers(HttpMethod.GET, "/api/reports/**").permitAll()
-				.antMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_USER).hasRole("ADMIN").antMatchers("/api/**")
-				.authenticated()
-				.antMatchers("/**", "/systeminfo/**", "/configuration/**", "/swagger*/**", "/webjars/**",
-						"/swagger-ui/**")
+				.antMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_USER).hasRole("ADMIN")
+				.antMatchers("/api/**").authenticated()
+				.antMatchers("/**", "/systeminfo/**", "/configuration/**", "/swagger*/**", "/webjars/**","/swagger-ui/**")
 				.permitAll().anyRequest().authenticated().and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessHandler(myCustomLogout)
 				.invalidateHttpSession(true).and().addFilter(getAuthenticationFilter())

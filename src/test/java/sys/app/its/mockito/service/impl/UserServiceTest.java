@@ -103,8 +103,13 @@ class UserServiceTest {
 		when(userRepository.save(any(UserEntity.class))).thenReturn(userEntity);
 		
 		UserDto saveDto = userService.createUser(user);
+		UserDto saveDto2 = new ModelMapper().map(userEntity,UserDto.class);
+		
 		assertNotNull(saveDto);
 		assertEquals(userEntity.getEmail(),saveDto.getEmail());
+		assertEquals(saveDto2.toString(),saveDto.toString());
+		//System.out.println(saveDto2.toString());
+		//System.out.println(saveDto.toString());
 	}
 	
 }

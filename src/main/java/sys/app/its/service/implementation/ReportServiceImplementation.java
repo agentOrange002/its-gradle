@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ResourceUtils;
 
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -38,6 +39,7 @@ public class ReportServiceImplementation implements ReportService {
 
 	Connection conn = null; 
 
+	@Transactional
 	@Override
 	public byte[] generatePDF(String issueId) {
 		byte[] bytes = null;
@@ -62,6 +64,7 @@ public class ReportServiceImplementation implements ReportService {
 		return bytes;
 	}
 
+	@Transactional
 	@Override
 	public byte[] generateIssueInfoReport(String id) {
 		byte[] bytes = null;
