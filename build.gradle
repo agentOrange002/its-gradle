@@ -28,6 +28,7 @@ docker {
 	dockerfile file('src/docker/Dockerfile')
 	copySpec.from(jar).rename(".*","app.jar")
 	buildArgs(['JAR_FILE': "app.jar"])
+	noCache true
 }
 
 dockerCompose {

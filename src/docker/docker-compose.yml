@@ -1,9 +1,10 @@
 version: '3.5'
 services:
-  yourapplication:
-    build: src/docker/Dockerfile
-    image: its
-    container_name: its-spring
-    ports:
-       - "8080:8080"
+  its-springboot:
+    build:
+      context: .
+      dockerfile: src/docker/Dockerfile
+    image: its:latest
+    container_name: its-spring-compose
+    network_mode: "host"
     tty: true
