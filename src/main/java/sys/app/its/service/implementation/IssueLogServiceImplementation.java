@@ -8,9 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import sys.app.its.dto.IssueDto;
 import sys.app.its.dto.IssueLogDto;
-import sys.app.its.dto.UserDto;
 import sys.app.its.entity.IssueEntity;
 import sys.app.its.entity.IssueLogEntity;
 import sys.app.its.entity.UserEntity;
@@ -36,26 +34,26 @@ public class IssueLogServiceImplementation implements IssueLogService {
 		/* ERROR */
 		ModelMapper amodelMapper = new ModelMapper();
 		amodelMapper.getConfiguration().setAmbiguityIgnored(true);
-		IssueEntity issueEnity = issueRepository.findIssueByIssueId(issueId);
+		IssueEntity issueEntity = issueRepository.findIssueByIssueId(issueId);
 		UserEntity userEntity = userRepository.findByUserId(userId);
 		/* ERROR */
 
 		IssueLogEntity entity = amodelMapper.map(issueLog, IssueLogEntity.class);
-		entity.setIssueDetails(issueEnity);
+		entity.setIssueDetails(issueEntity);
 		entity.setIssueLogUserDetails(userEntity);
 		entity.setIssueLogId(utils.generateIssueLogId(10));
 		entity.setLogDate(new Date());
 		IssueLogEntity saveEntity = issueLogRepository.save(entity);
 
-		IssueEntity ie = saveEntity.getIssueDetails();
-		UserEntity ue = saveEntity.getIssueLogUserDetails();
+		//IssueEntity ie = saveEntity.getIssueDetails();
+		//UserEntity ue = saveEntity.getIssueLogUserDetails();
 
-		IssueDto issueDto = new ModelMapper().map(ie, IssueDto.class);
-		UserDto userDto = new ModelMapper().map(ue, UserDto.class);
+		//IssueDto issueDto = new ModelMapper().map(ie, IssueDto.class);
+		//UserDto userDto = new ModelMapper().map(ue, UserDto.class);
 
 		returnValue = new ModelMapper().map(saveEntity, IssueLogDto.class);
-		returnValue.setIssueDto(issueDto);
-		returnValue.setUserDto(userDto);
+		//returnValue.setIssueDto(issueDto);
+		//returnValue.setUserDto(userDto);
 		return returnValue;
 	}
 
@@ -69,14 +67,14 @@ public class IssueLogServiceImplementation implements IssueLogService {
 
 			IssueLogDto dto = mapper.map(entity, IssueLogDto.class);
 
-			ModelMapper mm = new ModelMapper();
-			UserEntity uent = entity.getIssueLogUserDetails();
-			IssueEntity ient = entity.getIssueDetails();
-			UserDto udto = mm.map(uent, UserDto.class);
-			IssueDto idto = mm.map(ient, IssueDto.class);
+			//ModelMapper mm = new ModelMapper();
+			//UserEntity uent = entity.getIssueLogUserDetails();
+			//IssueEntity ient = entity.getIssueDetails();
+		//	UserDto udto = mm.map(uent, UserDto.class);
+			//IssueDto idto = mm.map(ient, IssueDto.class);
 
-			dto.setUserDto(udto);
-			dto.setIssueDto(idto);
+			//dto.setUserDto(udto);
+			//dto.setIssueDto(idto);
 			returnValue.add(dto);
 		}
 		return returnValue;
