@@ -3,12 +3,12 @@
 [![Website](https://img.shields.io/website?label=agentOrange002.com&style=for-the-badge&url=https%3A%2F%2Fdistracted-einstein-e83f94.netlify.app)](https://distracted-einstein-e83f94.netlify.app/)
 
 
-<img src="public/readme.png" align="right" />
+<img src="readme.png" align="right" />
 
 # ITS - Back End [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/agentOrange002/its-gradle#readme)
 > Issue Tracking System Back End Rest API
 
-ssue Tracking System - Back End is a Restfull Web API Services built with Spring Boot, Spring Data JPA, Spring Security, JasperReport, Gradle and PostreSQL.
+Issue Tracking System - Back End is a Restfull Web API Services built with Spring Boot, Spring Data JPA, Spring Security, JasperReport, Gradle and PostreSQL.
 
 It's an application that can track issues that being reported. It allows users, supports and administrators to manage issues.
 
