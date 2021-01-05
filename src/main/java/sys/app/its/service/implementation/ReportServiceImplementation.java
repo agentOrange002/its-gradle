@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -57,6 +58,7 @@ public class ReportServiceImplementation implements ReportService {
 	@Value("classpath:reports/IssueInfo.jrxml")
 	Resource loadIssueInfo;
 	
+	@Transactional
 	@Override
 	public byte[] generatePDF(String issueId) {
 		byte[] bytes = null;
@@ -84,6 +86,7 @@ public class ReportServiceImplementation implements ReportService {
 	}
 
 
+	@Transactional
 	@Override
 	public byte[] generateIssueInfoReport(String id) {
 		byte[] bytes = null;
