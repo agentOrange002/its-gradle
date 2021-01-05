@@ -20,10 +20,6 @@ It's an application that can track issues that being reported. It allows users, 
 
 [<img align="left" alt="Spring" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/spring.svg"/>][website]
 
-[<img align="left" alt="React" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/react.svg"/>][website]
-
-[<img align="left" alt="Redux" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/redux.svg"/>][website]
-
 [<img align="left" alt="PostgreSQL" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/postgresql.svg"/>][website]
 
 [<img align="left" alt="Gradle" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gradle.svg"/>][website]
