@@ -5,7 +5,7 @@
 
 <img src="public/readme.png" align="right" />
 
-# ITS [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/agentOrange002/its-gradle#readme)
+# ITS - Back End [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/agentOrange002/its-gradle#readme)
 > Issue Tracking System Back End Rest API
 
 ssue Tracking System - Back End is a Restfull Web API Services built with Spring Boot, Spring Data JPA, Spring Security, JasperReport, Gradle and PostreSQL.
@@ -13,7 +13,6 @@ ssue Tracking System - Back End is a Restfull Web API Services built with Spring
 It's an application that can track issues that being reported. It allows users, supports and administrators to manage issues.
 
 <br />
-
 ### Languages and Tools:
 
 [<img align="left" alt="Java" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/java.svg"/>][website]
@@ -29,6 +28,7 @@ It's an application that can track issues that being reported. It allows users, 
 [<img align="left" alt="Gradle" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gradle.svg"/>][website]
 
 
+<br />
 <br />
 
 ## Available Gradle Command
