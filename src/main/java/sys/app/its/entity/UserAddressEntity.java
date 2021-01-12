@@ -25,10 +25,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "user_addresses")
 public class UserAddressEntity implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8103366376398850197L;
+	private static final long serialVersionUID = -8976428754506780458L;
+
 	@Id
 	@SequenceGenerator(name = "address_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")

@@ -60,7 +60,7 @@ public class UserAddressController {
 	@Operation(summary = "UserAddress with UserId", description = "Save UserAddress with UserId", tags = "UserAddress")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserAddressEntity.class)))) })
-	@PostMapping(path="/save/{userId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path="/{userId}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public UserAddressResponseModel saveAddress(@PathVariable String userId,@RequestBody UserAddressRequestModel model) {
 		UserAddressDto dto = addressService.saveAddress(userId,new ModelMapper().map(model,UserAddressDto.class));
 		return new ModelMapper().map(dto, UserAddressResponseModel.class);

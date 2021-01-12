@@ -5,6 +5,6 @@ services:
       context: .
       dockerfile: src/docker/Dockerfile
     image: its:latest
-    container_name: its-spring-compose
+    container_name: its-spring-compose  
     network_mode: "host"
     tty: true

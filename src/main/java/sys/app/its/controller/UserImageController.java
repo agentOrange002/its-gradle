@@ -61,7 +61,7 @@ public class UserImageController {
 	@Operation(summary = "Post UserImage by UserId", description = "Save UserImage on a Specific User", tags = "UserImages")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Successfull Operation", content = @Content(array = @ArraySchema(schema = @Schema(implementation = UserImageEntity.class)))) })
-	@PostMapping(path="/userId}",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path="/{userId}",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
 	public UserImageResponseModel postUserImage(@PathVariable String userId,@RequestBody UserImageRequestModel requestModel) {
 		String[] file = requestModel.getImage();
 		String newFile = file[0];

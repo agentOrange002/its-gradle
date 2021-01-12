@@ -16,8 +16,7 @@ import org.springframework.data.mapping.MappingException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class IDGenerator extends SequenceStyleGenerator
-{
+public class IDGenerator extends SequenceStyleGenerator {
 	public static final String VALUE_PREFIX_PARAMETER = "valuePrefix";
     public static final String VALUE_PREFIX_DEFAULT = "";
     private String valuePrefix;
